@@ -23,7 +23,7 @@ const Header = () => {
         sx={{
           width: '100%',
           aspectRatio: '1 / 1',
-          bgcolor: '#11084bff',
+          bgcolor: '#0B1D51',
           borderRadius: '50%',
           position: 'absolute',
           top: '-95%', 

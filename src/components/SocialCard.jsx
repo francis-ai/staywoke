@@ -8,25 +8,25 @@ import MusicNoteIcon from '@mui/icons-material/MusicNote';
 const socials = [
   {
     name: 'WhatsApp',
-    icon: <WhatsAppIcon fontSize="medium" />,
+    icon: <WhatsAppIcon fontSize='large' />,
     url: 'https://wa.me/2349074840423',
-    bg: '#128C7E',
+    bg: '#25D366',
   },
   {
     name: 'Instagram',
-    icon: <InstagramIcon fontSize="medium" />,
+    icon: <InstagramIcon fontSize="large" />,
     url: 'https://www.instagram.com/staywoke.szn?igsh=MWZ6NXppY2NlZ25xOA%3D%3D&utm_source=qr',
-    bg: '#E1306C',
+    bg: 'linear-gradient(135deg, #ACBDE8, #FC5344, #E1447A)',
   },
   {
     name: 'TikTok',
-    icon: <MusicNoteIcon fontSize="medium" />,
+    icon: <MusicNoteIcon fontSize="large" />,
     url: 'https://www.tiktok.com/@staywoke.szn?_t=ZS-8yWorO1kTBM&_r=1',
     bg: '#000000',
   },
   {
     name: 'Website',
-    icon: <LanguageIcon fontSize="medium" />,
+    icon: <LanguageIcon fontSize="large" />,
     url: '#',
     bg: '#007BFF',
   },
@@ -51,20 +51,23 @@ const SocialCard = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            bgcolor: item.bg,
+            background:
+              item.name === 'Instagram'
+                ? 'linear-gradient(135deg, #ACBDE8, #FC5344, #E1447A)'
+                : item.bg,
             color: '#fff',
             p: 2,
+            mb: 1,
             borderRadius: 3,
-            boxShadow: `
-              0 4px 10px rgba(0, 0, 0, 0.2),
-              0 6px 20px rgba(0, 0, 0, 0.15)
-            `,
-            transition: 'transform 0.2s ease',
+            boxShadow: '0 6px 10px rgba(0, 0, 0, 0.25)',
+            transition: 'transform 0.3s ease',
             '&:hover': {
-              transform: 'scale(1.015)',
-            },
+              transform: 'scale(1.025)',
+            }
+
           }}
         >
+
           {/* Icon + Name */}
           <Stack direction="row" spacing={1} alignItems="center">
             {item.icon}
@@ -89,7 +92,7 @@ const SocialCard = () => {
               px: 2,
               py: 0.5,
               '&:hover': {
-                bgcolor: 'rgba(255,255,255,0.15)',
+                bgcolor: 'rgba(255, 255, 255, 0.34)',
               },
             }}
           >

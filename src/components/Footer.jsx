@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import Logo from '../assets/images/logo.svg';
+import Logo from '../assets/images/staywoke.svg';
 import Street from '../assets/images/street.png';
 
 const Footer = () => {
@@ -8,51 +8,67 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        mt: 4,
+        mt: 6,
         px: 1,
         py: 2,
+        borderTop: '1px solid rgba(255,255,255,0.2)',
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
         alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: 4,
-        borderRadius: 0,
-        backdropFilter: 'blur(10px)',
-        background: 'rgba(255, 255, 255, 0.1)',
-        boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+        gap: 3,
+        backdropFilter: 'blur(30px)',
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))',
+        borderRadius: '0',
+        boxShadow: '0 -6px 10px rgba(0, 0, 0, 0.25)',
       }}
     >
-      {/* Logo */}
+      {/* Images in a row */}
       <Box
-        component="img"
-        src={Logo}
-        alt="StayWoke Logo"
         sx={{
-          width: { xs: 120, sm: 120 },
-          height: 'auto',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 2,
+          flexWrap: 'wrap',
         }}
-      />
+      >
+        {/* Logo in glass box */}
+        <Box>
+          <Box
+            component="img"
+            src={Logo}
+            alt="StayWoke Logo"
+            sx={{
+              width: 160,
+              height: 'auto',
+            }}
+          />
+        </Box>
 
-      {/* Street Image */}
-      <Box
-        component="img"
-        src={Street}
-        alt="Street View"
-        sx={{
-          width: { xs: 100, sm: 120 },
-          height: 'auto',
-        }}
-      />
+        {/* Street Image in glass box */}
+        <Box>
+          <Box
+            component="img"
+            src={Street}
+            alt="Street View"
+            sx={{
+              width: 120,
+              height: 'auto',
+            }}
+          />
+        </Box>
+      </Box>
+
       {/* Copyright */}
       <Typography
         variant="body2"
         sx={{
           color: '#000',
-          opacity: 0.8,
-          mt: 2,
+          opacity: 0.85,
+          fontSize: '0.85rem',
         }}
       >
-        &copy; StayWoke 2025. All rights reserved.
+        &copy; stAywOKe.szn 2025. All rights reserved.
       </Typography>
     </Box>
   );
