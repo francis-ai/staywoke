@@ -18,7 +18,7 @@ const Tagline = () => {
         sx={{
           fontFamily: 'Notedry, sans-serif',
           lineHeight: 1.3,
-          fontSize: { xs: '2.5rem', sm: '2.7rem', md: '3rem' },
+          fontSize: { xs: '2.7rem', sm: '2.7rem', md: '3rem' },
           display: 'inline-block',
         }}
       >

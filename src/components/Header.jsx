@@ -38,7 +38,7 @@ const Header = () => {
         sx={{
           position: 'relative',
           zIndex: 1,
-          mt: '5px', 
+          mt: '0px', 
         }}
       >
         <Box
@@ -46,7 +46,7 @@ const Header = () => {
           src={Logo}
           alt="StayWoke Logo"
           sx={{
-            width: 240,
+            width: 260,
             height: 160,
             objectFit: 'contain',
           }}
@@ -58,8 +58,8 @@ const Header = () => {
       src={Street}
       alt="StayWoke street"
       sx={{
-        width: 200,
-        height: 200,
+        width: 180,
+        height: 180,
         objectFit: 'contain',
         position: 'absolute',
         justifyContent: 'center',
