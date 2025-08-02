@@ -47,7 +47,7 @@ const Header = () => {
           alt="StayWoke Logo"
           sx={{
             width: 260,
-            height: 160,
+            height: 180,
             objectFit: 'contain',
           }}
         />
@@ -63,7 +63,7 @@ const Header = () => {
         objectFit: 'contain',
         position: 'absolute',
         justifyContent: 'center',
-        top: '5%', 
+        top: '13%', 
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 1,
