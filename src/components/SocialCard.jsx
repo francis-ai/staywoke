@@ -9,7 +9,7 @@ const socials = [
   {
     name: 'WhatsApp',
     icon: <WhatsAppIcon fontSize='large' />,
-    url: 'https://wa.me/2349074840423',
+    url: 'https://wa.me/2348143582166',
     bg: '#25D366',
   },
   {
