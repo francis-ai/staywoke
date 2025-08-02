@@ -58,12 +58,12 @@ const Header = () => {
       src={Street}
       alt="StayWoke street"
       sx={{
-        width: 180,
-        height: 180,
+        width: 200,
+        height: 200,
         objectFit: 'contain',
         position: 'absolute',
         justifyContent: 'center',
-        top: '10%', 
+        top: '5%', 
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 1,
