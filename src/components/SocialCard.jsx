@@ -43,7 +43,7 @@ const SocialCard = () => {
         gap: 2,
       }}
     >
-    <Typography>Got enqures? You can connect with us via:</Typography>
+    <Typography>Got enquiry? You can connect with us via:</Typography>
       {socials.map((item) => (
         <Box
           key={item.name}
