@@ -7,7 +7,7 @@ const Tagline = () => {
   return (
     <Box
       sx={{
-        mt: 12,
+        mt: 14,
         textAlign: 'center',
         px: 2,
       }}
