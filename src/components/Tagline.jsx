@@ -7,7 +7,7 @@ const Tagline = () => {
   return (
     <Box
       sx={{
-        mt: 10,
+        mt: 12,
         textAlign: 'center',
         px: 2,
       }}
@@ -29,14 +29,14 @@ const Tagline = () => {
             sx={{
               mx: 0.5,
               display: 'inline-block',
-              color: '#90802df0',
+              color: '#a99118f0',
               animation: 'highlight 5s linear infinite',
               animationDelay: `${index * 1}s`,
               '@keyframes highlight': {
-                '0%': { color: '#90802df0' },
+                '0%': { color: '#a99118f0' },
                 '10%': { color: '#0f22a1ff' },
-                '20%': { color: '#90802df0' },
-                '100%': { color: '#90802df0' },
+                '20%': { color: '#a99118f0' },
+                '100%': { color: '#a99118f0' },
               },
             }}
           >
