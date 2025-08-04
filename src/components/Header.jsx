@@ -16,6 +16,7 @@ const Header = () => {
         justifyContent: 'center',
         alignItems: 'start',
         overflow: 'hidden',
+        p: 0
       }}
     >
       {/* Semi-circle */}
@@ -26,10 +27,11 @@ const Header = () => {
           bgcolor: '#f2f4f9ff',
           borderRadius: '50%',
           position: 'absolute',
-          top: '-90%', 
+          top: '-95%', 
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 0,
+          m:0
         }}
       />
 
