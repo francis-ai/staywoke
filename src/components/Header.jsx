@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import Logo from '../assets/images/logo.svg';
+import Logo from '../assets/images/logo2.svg';
 import Street from '../assets/images/street.png';
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
         sx={{
           width: '100%',
           aspectRatio: '1 / 1',
-          bgcolor: '#0B1D51',
+          bgcolor: '#f2f4f9ff',
           borderRadius: '50%',
           position: 'absolute',
           top: '-95%', 

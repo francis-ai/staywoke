@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import Logo from '../assets/images/staywoke.svg';
+import Logo from '../assets/images/frame.svg';
 import Street from '../assets/images/street.png';
 
 const Footer = () => {
@@ -11,13 +11,14 @@ const Footer = () => {
         mt: 6,
         px: 1,
         py: 2,
+        pd:1,
         borderTop: '1px solid rgba(255,255,255,0.2)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: 3,
         backdropFilter: 'blur(30px)',
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))',
+        background: '#fff',
         borderRadius: '0',
         boxShadow: '0 -6px 10px rgba(0, 0, 0, 0.25)',
       }}
