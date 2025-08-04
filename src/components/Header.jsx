@@ -27,7 +27,7 @@ const Header = () => {
           bgcolor: '#f2f4f9ff',
           borderRadius: '50%',
           position: 'absolute',
-          top: '-95%', 
+          top: '-90%', 
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 0,
@@ -60,12 +60,12 @@ const Header = () => {
       src={Street}
       alt="StayWoke street"
       sx={{
-        width: 200,
-        height: 200,
+        width: 210,
+        height: 210,
         objectFit: 'contain',
         position: 'absolute',
         justifyContent: 'center',
-        top: '16%', 
+        top: '10%', 
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 1,

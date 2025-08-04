@@ -17,7 +17,7 @@ const Tagline = () => {
         component="div"
         sx={{
           fontFamily: 'Notedry, sans-serif',
-          lineHeight: 1.3,
+          lineHeight: 1.2,
           fontSize: { xs: '2.7rem', sm: '2.7rem', md: '3rem' },
           display: 'inline-block',
         }}
@@ -29,14 +29,14 @@ const Tagline = () => {
             sx={{
               mx: 0.5,
               display: 'inline-block',
-              color: '#a99118f0',
-              animation: 'highlight 5s linear infinite',
-              animationDelay: `${index * 1}s`,
+              color: '#fffffff0',
+              animation: 'highlight 4s linear infinite',
+              animationDelay: `${index * 0.7}s`,
               '@keyframes highlight': {
-                '0%': { color: '#a99118f0' },
-                '10%': { color: '#0f22a1ff' },
-                '20%': { color: '#a99118f0' },
-                '100%': { color: '#a99118f0' },
+                '0%': { color: '#fffffff0' },
+                '10%': { color: '#000000ff' },
+                '20%': { color: '#fffffff0' },
+                '100%': { color: '#fffffff0' },
               },
             }}
           >
