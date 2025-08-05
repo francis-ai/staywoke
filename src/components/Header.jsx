@@ -65,7 +65,7 @@ const Header = () => {
         objectFit: 'contain',
         position: 'absolute',
         justifyContent: 'center',
-        top: '10%', 
+        top: '15%', 
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 1,
