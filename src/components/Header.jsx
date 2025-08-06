@@ -58,9 +58,11 @@ const Header = () => {
           justifyContent: 'center',
           alignItems: 'center',
           mt: 7,
-          width: 190,
+          width: 230,
           position: 'absolute',
-          left: 70
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 1    
         }}
       >
         <Box 
@@ -68,7 +70,7 @@ const Header = () => {
           src={LogoText}
           alt="StayWoke Logo"
           sx={{
-            width: 180,
+            width: 220,
             height: 'auto',
             filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
           }}
