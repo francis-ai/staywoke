@@ -16,7 +16,16 @@ const socials = [
     name: 'Instagram',
     icon: <InstagramIcon fontSize="large" />,
     url: 'https://www.instagram.com/staywoke.szn?igsh=MWZ6NXppY2NlZ25xOA%3D%3D&utm_source=qr',
-    bg: 'linear-gradient(135deg, #ACBDE8, #FC5344, #E1447A)',
+    bg: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+    sx: {
+      backgroundSize: '200% 200%',
+      animation: 'instagramGradient 5s ease infinite',
+      '@keyframes instagramGradient': {
+        '0%': { backgroundPosition: '0% 50%' },
+        '50%': { backgroundPosition: '100% 50%' },
+        '100%': { backgroundPosition: '0% 50%' },
+      },
+    }
   },
   {
     name: 'TikTok',
@@ -28,7 +37,7 @@ const socials = [
     name: 'Website',
     icon: <LanguageIcon fontSize="large" />,
     url: '#',
-    bg: '#007BFF',
+    bg: '#004187ff',
   },
 ];
 
@@ -36,7 +45,7 @@ const SocialCard = () => {
   return (
     <Box
       sx={{
-        mt: 4,
+        mt: 2,
         px: 2,
         display: 'flex',
         flexDirection: 'column',
@@ -53,7 +62,7 @@ const SocialCard = () => {
             alignItems: 'center',
             background:
               item.name === 'Instagram'
-                ? 'linear-gradient(135deg, #ACBDE8, #FC5344, #E1447A)'
+                ? 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)'
                 : item.bg,
             color: '#fff',
             p: 2,
