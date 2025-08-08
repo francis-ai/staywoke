@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   return (
-    <Container sx={{backgroundColor: '#1762a8', m: 0, p:0}}>
+    <Container sx={{backgroundColor: '#1762a8', m: 0, p:0, mx: 'auto'}}>
       <Header />
       <Tagline />
       <SocialCard />

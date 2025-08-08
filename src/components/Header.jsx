@@ -43,7 +43,7 @@ const Header = () => {
         backgroundColor: 'white',
         position: 'absolute',
         top: '17%',
-        letf: 0
+        left: 0
       }}
     >
       <Box
@@ -58,6 +58,7 @@ const Header = () => {
           justifyContent: 'center',
           alignItems: 'center',
           mt: 7,
+          mx: 'auto',
           height: 60,
           width: 200,
           position: 'absolute',
