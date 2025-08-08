@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import Logo from '../assets/images/logo.svg';
-import LogoText from '../assets/images/logo2.svg';
+import LogoText from '../assets/images/logo3.svg';
 
 const Header = () => {
   return (
@@ -53,12 +53,13 @@ const Header = () => {
           borderRadius: '8px',
           border: '1px solid rgba(255, 255, 255, 0.3)',
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-          padding: '10px',
+          p: 0,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           mt: 7,
-          width: 230,
+          height: 60,
+          width: 200,
           position: 'absolute',
           left: '50%',
           transform: 'translateX(-50%)',
@@ -70,7 +71,8 @@ const Header = () => {
           src={LogoText}
           alt="StayWoke Logo"
           sx={{
-            width: 220,
+            p: 0,
+            width: 195,
             height: 'auto',
             filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
           }}
