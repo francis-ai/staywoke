@@ -61,24 +61,10 @@ const Tagline = () => {
           textAlign: 'justify', // ✅ makes alignment equal on both ends
         }}
       >
-        StayWoke is more than a brand, it’s a movement.  
-        A community built for creators, thinkers, and doers who never stop pushing boundaries.  
-        We’re crafting experiences that blend culture and lifestyle in ways you’ve never seen before.  
-        Expect bold ideas, raw creativity, and a platform that never sleeps.  
-        This is where passion meets purpose.  
-        Welcome to the Matrix.
+        stAywOKe is more than a brand. It’s a mindset.
+        For those who refuse the ordinary.
+        No sleep in this Matrix. The mindset that never sleeps.
       </Typography>
-      {/* <Typography
-        variant="body1"
-        sx={{
-          color: 'text.primary',
-          lineHeight: 1.7,
-          fontWeight: 500,
-          fontSize: '1rem'
-        }}
-      >
-        Launching soon 🚀.
-      </Typography> */}
     </Box>
   );
 };

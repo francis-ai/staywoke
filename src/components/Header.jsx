@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Logo from '../assets/images/logo.png';
+import Logo from '../assets/images/logo3.svg';
 
 // Styled components
 const HeaderContainer = styled(Box)(({ theme }) => ({
@@ -38,14 +38,14 @@ const Header = () => {
           src={Logo}
           alt="StayWoke Logo"
           sx={{
-            width: { xs: '45px', sm: '55px', md: '65px' },
-            height: { xs: '45px', sm: '55px', md: '65px' },
+            width: { xs: '360px', sm: '360px', md: '360px' },
+            height: { xs: '100px', sm: '100px', md: '100px' },
             objectFit: 'contain',
           }}
         />
         
         {/* Brand Name */}
-        <Typography
+        {/* <Typography
           variant="h3"
           component="h1"
           sx={{
@@ -56,8 +56,8 @@ const Header = () => {
             fontSize: { xs: '2rem', sm: '2.4rem', md: '2.8rem' },
           }}
         >
-          StAywOKe
-        </Typography>
+          stAywOKe
+        </Typography> */}
       </LogoContainer>
     </HeaderContainer>
   );
