@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Home from "./pages/Index";
 import FlashScreen from "./components/FlashScreen";
+import WhatsAppButton from "./components/FloatingButton";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,6 +24,7 @@ function App() {
 
           {/* Page Content */}
           <Home />
+          <WhatsAppButton />
         </Box>
       )}
     </>

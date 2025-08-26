@@ -6,12 +6,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
 const socials = [
-  {
-    name: 'WhatsApp',
-    icon: <WhatsAppIcon fontSize='large' />,
-    url: 'https://wa.me/2348143582166',
-    bg: '#25D366',
-  },
+  
   {
     name: 'Instagram',
     icon: <InstagramIcon fontSize="large" />,
@@ -34,6 +29,12 @@ const socials = [
     bg: '#000000',
   },
   {
+    name: 'WhatsApp',
+    icon: <WhatsAppIcon fontSize='large' />,
+    url: 'https://wa.me/2348143582166',
+    bg: '#25D366',
+  },
+  {
     name: 'Website',
     icon: <LanguageIcon fontSize="large" />,
     url: '#',
@@ -45,14 +46,14 @@ const SocialCard = () => {
   return (
     <Box
       sx={{
-        mt: 2,
+        mt: 4,
         px: 2,
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
       }}
     >
-    <Typography sx={{color: '#fff'}}>Got enquiries? You can connect with us via:</Typography>
+    <Typography sx={{color: '#000'}}>Got enquiries? You can connect with us via:</Typography>
       {socials.map((item) => (
         <Box
           key={item.name}

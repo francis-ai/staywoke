@@ -5,26 +5,13 @@
 }
 
 html, body, .app {
-  height: 'auto';
+  min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #1762a8;
-  color: #f2f2f2;
+  background: linear-gradient(135deg, #e0eafc, #4facfe, #1762a8);
+  background-size: 200% 200%;
+  color: #000;
   transition: background 0.3s ease, color 0.3s ease;
-}
-
-body {
-  background-image:
-    linear-gradient(to right, transparent 39px, #ff6f6f 1px, transparent 0),
-    repeating-linear-gradient(to right, transparent, transparent 23px, #dfdddd6a 24px),
-    repeating-linear-gradient(to bottom, transparent, transparent 23px, #dfdddd6a 24px);
-  background-size:
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    24px 100%,
-    100% 24px;
-  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat;
-  background-position: top left;
+  animation: gradientShift 12s ease infinite;
 }
 
 code {
@@ -40,3 +27,9 @@ code {
   font-style: normal;
 }
 
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
