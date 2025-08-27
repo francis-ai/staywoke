@@ -53,7 +53,7 @@ const SocialCard = () => {
         gap: 2,
       }}
     >
-    <Typography sx={{color: '#000'}}>Got enquiries? You can connect with us via:</Typography>
+    <Typography sx={{color: '#000', textAlign: 'center', fontStyle: 'italic'}}>Got enquiries? You can connect with us via:</Typography>
       {socials.map((item) => (
         <Box
           key={item.name}

@@ -51,14 +51,16 @@ const Tagline = () => {
       <Typography
         variant="body1"
         sx={{
-          fontSize: { xs: '1rem', sm: '1rem' },
+          fontSize: { xs: '1.2rem', sm: '1rem' },
           color: '#000',
           maxWidth: '650px',
           mx: 'auto',
           lineHeight: 1.7,
           mt: 2,
           px: 1,
-          textAlign: 'justify', // ✅ makes alignment equal on both ends
+          textAlign: 'justify', 
+          fontStyle: "oblique",
+          backgroundColor: '#fff'
         }}
       >
         stAywOKe is more than a brand. It’s a mindset.

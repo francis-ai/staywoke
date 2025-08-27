@@ -14,6 +14,31 @@ html, body, .app {
   animation: gradientShift 12s ease infinite;
 }
 
+:root {
+  --bg-color: #ffffff;       /* Slightly purplish-black */
+  --grid-line: #4e4b4b72;    /* Softer grid lines */
+  --margin-line: #ff6f6f;
+  --text-color: #f2f2f2;
+  --bubble-1: #2a0f40;       /* Deep purple bubble tone */
+  --bubble-2: #2a0f40;       /* Blended black-purple */
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image:
+    linear-gradient(to right, transparent 39px, var(--margin-line) 1px, transparent 0),
+    repeating-linear-gradient(to right, transparent, transparent 23px, var(--grid-line) 24px),
+    repeating-linear-gradient(to bottom, transparent, transparent 23px, var(--grid-line) 24px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    24px 100%,
+    100% 24px;
+  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat;
+  background-position: top left;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   return (
-    <Box sx={{height: '100vh'}}>
+    <Box sx={{height: 'auto'}}>
         <Header />
         <Tagline />
         <SocialCard />
