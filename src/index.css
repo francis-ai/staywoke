@@ -16,11 +16,9 @@ html, body, .app {
 
 :root {
   --bg-color: #ffffff;       /* Slightly purplish-black */
-  --grid-line: #4e4b4b72;    /* Softer grid lines */
-  --margin-line: #ff6f6f;
+  --grid-line: #0a2a96;    /* Softer grid lines */
+  --margin-line: #1d0cb5df;
   --text-color: #f2f2f2;
-  --bubble-1: #2a0f40;       /* Deep purple bubble tone */
-  --bubble-2: #2a0f40;       /* Blended black-purple */
 }
 
 body {
