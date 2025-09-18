@@ -1,17 +1,16 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import Header from '../components/Header';
-import Tagline from '../components/Tagline';
-import SocialCard from '../components/SocialCard';
-import Footer from '../components/Footer';
+import HeroSection from '../components/Hero';
+import Catalog from '../components/Catalog'
+import CTA from '../components/CTA';
+
 
 const Home = () => {
   return (
     <Box sx={{height: 'auto'}}>
-        <Header />
-        <Tagline />
-        <SocialCard />
-        <Footer />
+        <HeroSection />
+        <Catalog limit={4} />
+        <CTA />
     </Box>
   );
 };
