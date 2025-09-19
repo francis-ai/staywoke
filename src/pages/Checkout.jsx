@@ -12,7 +12,6 @@ import {
 import { useCart } from "../context/CartContext";
 
 const WHATSAPP_NUMBER = "2348143582166";
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 const Checkout = () => {
   const { cart } = useCart();
@@ -123,11 +122,11 @@ ${cartDetails}
                   mb: 2,
                 }}
               >
-                {/* Product Image */}
+                {/* ✅ Product Image (Cloudinary URL directly) */}
                 <Grid item xs={3}>
                   <Box
                     component="img"
-                    src={`${BASE_URL}/${item.image}`}
+                    src={item.image} // ✅ fixed
                     alt={item.name}
                     sx={{
                       width: "100%",

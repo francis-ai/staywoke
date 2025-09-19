@@ -1,3 +1,4 @@
+// src/pages/ProductDetail.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -12,8 +13,6 @@ import {
 import { ShoppingCart, X } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { getProductById } from "../api/ProductApi";
-
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -66,7 +65,7 @@ const ProductDetail = () => {
       id: product.id || product._id,
       name: product.name,
       price: product.price,
-      image: product.image,
+      image: product.image?.url,
       selectedSize,
     };
 
@@ -95,38 +94,40 @@ const ProductDetail = () => {
       >
         {/* Left side: Main Image + Gallery */}
         <Box>
-          {/* Main Image */}
-          <Box
-            component="img"
-            src={`${BASE_URL}/${product.image}`}
-            alt={product.name}
-            sx={{
-              width: { xs: "100%", md: 400 },
-              borderRadius: 3,
-              boxShadow: "0 6px 16px rgba(0,0,0,0.15)",
-              mb: 2,
-            }}
-          />
+          {/* ✅ Main Image */}
+          {product.image?.url && (
+            <Box
+              component="img"
+              src={product.image.url}
+              alt={product.name}
+              sx={{
+                width: { xs: "100%", md: 400 },
+                borderRadius: 3,
+                boxShadow: "0 6px 16px rgba(0,0,0,0.15)",
+                mb: 2,
+              }}
+            />
+          )}
 
-          {/* Gallery Images */}
+          {/* ✅ Gallery Images */}
           {product.gallery && product.gallery.length > 0 && (
             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
               {product.gallery.map((img, idx) => (
                 <Box
                   key={idx}
                   component="img"
-                  src={`${BASE_URL}/${img}`}
+                  src={img.url}
                   alt={`gallery-${idx}`}
                   width={80}
                   height={80}
                   sx={{
                     borderRadius: 2,
-                    border: '1px solid #ccc',
+                    border: "1px solid #ccc",
                     cursor: "pointer",
                     transition: "0.3s",
                     "&:hover": { transform: "scale(1.1)" },
                   }}
-                  onClick={() => openGalleryModal(img)}
+                  onClick={() => openGalleryModal(img.url)}
                 />
               ))}
             </Box>
@@ -188,62 +189,62 @@ const ProductDetail = () => {
         </Box>
       </Box>
 
-      {/* Gallery Modal */}
+      {/* ✅ Gallery Modal */}
       <Modal open={galleryOpen} onClose={closeGalleryModal}>
-  <Box
-    sx={{
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: { xs: "90%", md: "60%" },
-      bgcolor: "background.paper",
-      boxShadow: 24,
-      p: 0,
-      borderRadius: 2,
-      outline: "none",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    {/* Close button at top-right */}
-    <Button
-      onClick={closeGalleryModal}
-      sx={{
-        position: "absolute",
-        top: 8,
-        right: 8,
-        minWidth: "32px",
-        width: "32px",
-        height: "32px",
-        borderRadius: "50%",
-        bgcolor: "rgba(0,0,0,0.6)",
-        color: "#fff",
-        "&:hover": { bgcolor: "rgba(0,0,0,0.8)" },
-        zIndex: 10,
-        p: 0,
-      }}
-    >
-      <X size={16} />
-    </Button>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: { xs: "90%", md: "60%" },
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 0,
+            borderRadius: 2,
+            outline: "none",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {/* Close button */}
+          <Button
+            onClick={closeGalleryModal}
+            sx={{
+              position: "absolute",
+              top: 8,
+              right: 8,
+              minWidth: "32px",
+              width: "32px",
+              height: "32px",
+              borderRadius: "50%",
+              bgcolor: "rgba(0,0,0,0.6)",
+              color: "#fff",
+              "&:hover": { bgcolor: "rgba(0,0,0,0.8)" },
+              zIndex: 10,
+              p: 0,
+            }}
+          >
+            <X size={16} />
+          </Button>
 
-    {/* Centered Image */}
-    {selectedGalleryImage && (
-      <Box
-        component="img"
-        src={`${BASE_URL}/${selectedGalleryImage}`}
-        alt="gallery-large"
-        sx={{
-          maxWidth: "100%",
-          maxHeight: "80vh",
-          borderRadius: 2,
-          display: "block",
-        }}
-      />
-    )}
-  </Box>
-</Modal>
+          {/* Centered Image */}
+          {selectedGalleryImage && (
+            <Box
+              component="img"
+              src={selectedGalleryImage}
+              alt="gallery-large"
+              sx={{
+                maxWidth: "100%",
+                maxHeight: "80vh",
+                borderRadius: 2,
+                display: "block",
+              }}
+            />
+          )}
+        </Box>
+      </Modal>
     </Container>
   );
 };

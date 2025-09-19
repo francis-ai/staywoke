@@ -1,3 +1,4 @@
+// src/pages/admin/Catalog.jsx
 import React, { useState, useEffect } from "react";
 import {
   Box,
@@ -28,8 +29,6 @@ import {
   updateProduct,
   deleteProduct,
 } from "../../api/ProductApi";
-
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 export default function Catalog() {
   const [products, setProducts] = useState([]);
@@ -111,11 +110,8 @@ export default function Catalog() {
     const { name, value, files } = e.target;
     if (files) {
       if (name === "gallery") {
-        const newGallery = Array.from(files).slice(0, 3 - formData.gallery.length);
-        setFormData((prev) => ({
-          ...prev,
-          gallery: [...prev.gallery, ...newGallery],
-        }));
+        const newGallery = Array.from(files).slice(0, 3);
+        setFormData((prev) => ({ ...prev, gallery: newGallery }));
       } else {
         setFormData((prev) => ({ ...prev, [name]: files[0] }));
       }
@@ -147,23 +143,22 @@ export default function Catalog() {
       data.append("longDesc", formData.longDesc);
       data.append("price", formData.price);
 
-      formData.sizes.forEach((s) => data.append("sizes", s)); // array
+      formData.sizes.forEach((s) => data.append("sizes[]", s));
       if (formData.image) data.append("image", formData.image);
-
-      formData.gallery.forEach((file) => data.append("gallery", file)); // multiple files
+      formData.gallery.forEach((file) => data.append("gallery", file));
 
       if (currentProduct) {
         await updateProduct(currentProduct._id, data);
         setSnackbar({
           open: true,
-          message: "Product updated successfully",
+          message: "✅ Product updated successfully",
           severity: "success",
         });
       } else {
         await createProduct(data);
         setSnackbar({
           open: true,
-          message: "Product added successfully",
+          message: "✅ Product added successfully",
           severity: "success",
         });
       }
@@ -174,7 +169,7 @@ export default function Catalog() {
       console.error("Error saving product:", error);
       setSnackbar({
         open: true,
-        message: "Error saving product",
+        message: "❌ Error saving product",
         severity: "error",
       });
     }
@@ -187,14 +182,14 @@ export default function Catalog() {
       loadProducts();
       setSnackbar({
         open: true,
-        message: "Product deleted successfully",
+        message: "✅ Product deleted successfully",
         severity: "success",
       });
     } catch (error) {
       console.error("Error deleting product:", error);
       setSnackbar({
         open: true,
-        message: "Error deleting product",
+        message: "❌ Error deleting product",
         severity: "error",
       });
     }
@@ -236,9 +231,9 @@ export default function Catalog() {
             .map((product) => (
               <TableRow key={product._id}>
                 <TableCell>
-                  {product.image ? (
+                  {product.image?.url ? (
                     <img
-                      src={`${BASE_URL}/${product.image}`}
+                      src={product.image.url}
                       alt={product.name}
                       width={50}
                       height={50}
@@ -315,6 +310,7 @@ export default function Catalog() {
               value={formData.name}
               onChange={handleChange}
               sx={{ mb: 2 }}
+              required
             />
             <TextField
               fullWidth
@@ -323,6 +319,7 @@ export default function Catalog() {
               value={formData.shortDesc}
               onChange={handleChange}
               sx={{ mb: 2 }}
+              required
             />
             <TextField
               fullWidth
@@ -364,6 +361,7 @@ export default function Catalog() {
               value={formData.price}
               onChange={handleChange}
               sx={{ mb: 2 }}
+              required
             />
 
             {/* Main Image */}
@@ -372,7 +370,7 @@ export default function Catalog() {
               component="label"
               sx={{ mb: 2, bgcolor: "#000" }}
             >
-              Upload Image
+              Upload Main Image
               <input type="file" hidden name="image" onChange={handleChange} />
             </Button>
             {formData.image && (
@@ -386,13 +384,15 @@ export default function Catalog() {
                 />
               </Box>
             )}
-    
-            {/* Gallery Images (3 fixed inputs) */}
+
+            {/* Gallery Uploads (3 separate buttons) */}
             <Box sx={{ mb: 2 }}>
+              <Typography variant="subtitle1">Gallery Images</Typography>
+
               {[0, 1, 2].map((i) => (
                 <Box key={i} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
                   <Button variant="outlined" component="label">
-                    Upload Image {i + 1}
+                    {formData.gallery[i] ? "Change Image" : `Upload Image ${i + 1}`}
                     <input
                       type="file"
                       hidden
@@ -401,21 +401,46 @@ export default function Catalog() {
                         if (file) {
                           setFormData((prev) => {
                             const newGallery = [...prev.gallery];
-                            newGallery[i] = file; // assign file to specific index
+                            newGallery[i] = file; // put at index i
                             return { ...prev, gallery: newGallery };
                           });
                         }
                       }}
                     />
                   </Button>
+
+                  {/* Preview for this slot */}
                   {formData.gallery[i] && (
-                    <img
-                      src={URL.createObjectURL(formData.gallery[i])}
-                      alt={`gallery-${i}`}
-                      width={80}
-                      height={80}
-                      style={{ borderRadius: "8px" }}
-                    />
+                    <Box sx={{ position: "relative" }}>
+                      <img
+                        src={URL.createObjectURL(formData.gallery[i])}
+                        alt={`gallery-${i}`}
+                        width={80}
+                        height={80}
+                        style={{ borderRadius: "8px" }}
+                      />
+                      <Button
+                        size="small"
+                        color="error"
+                        sx={{
+                          position: "absolute",
+                          top: -10,
+                          right: -10,
+                          minWidth: "24px",
+                          padding: 0,
+                          borderRadius: "50%",
+                        }}
+                        onClick={() =>
+                          setFormData((prev) => {
+                            const newGallery = [...prev.gallery];
+                            newGallery[i] = null; // clear slot
+                            return { ...prev, gallery: newGallery };
+                          })
+                        }
+                      >
+                        ✕
+                      </Button>
+                    </Box>
                   )}
                 </Box>
               ))}
@@ -464,13 +489,15 @@ export default function Catalog() {
               <Typography variant="h5" sx={{ mb: 2 }}>
                 {viewProduct.name}
               </Typography>
-              <img
-                src={`${BASE_URL}/${viewProduct.image}`}
-                alt={viewProduct.name}
-                width={150}
-                height={150}
-                style={{ borderRadius: "50%", mb: 2 }}
-              />
+              {viewProduct.image?.url && (
+                <img
+                  src={viewProduct.image.url}
+                  alt={viewProduct.name}
+                  width={150}
+                  height={150}
+                  style={{ borderRadius: "50%", marginBottom: "1rem" }}
+                />
+              )}
               <Typography variant="subtitle1">
                 Short Description: {viewProduct.shortDesc}
               </Typography>
@@ -491,7 +518,7 @@ export default function Catalog() {
                 {viewProduct.gallery.map((img, idx) => (
                   <img
                     key={idx}
-                    src={`${BASE_URL}/${img}`}
+                    src={img.url}
                     alt={`gallery-${idx}`}
                     width={80}
                     height={80}

@@ -14,14 +14,13 @@ import {
   List,
   ListItem,
   ListItemText,
-  Divider,
+  // Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useCart } from "../context/CartContext"; 
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/images/logo.png';
 
-// 🎨 Theme Colors (easy to edit later)
 const themeColors = {
   primary: "#1976d2",
   text: "#333333",
@@ -39,12 +38,9 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { cart } = useCart(); // ✅ get cart from context
-
-  // ✅ safe fallback in case cart is undefined
+  const { cart } = useCart();
   const cartItems = cart || [];
 
-  // ✅ count total items (respect qty if exists)
   const cartCount = cartItems.reduce(
     (total, item) => total + (item.qty || 1),
     0
@@ -52,7 +48,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Navbar */}
       <AppBar
         position="fixed"
         sx={{
@@ -72,29 +67,17 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            {/* Logo Image */}
             <Box
               component="img"
               src={Logo}
               alt="Logo"
-              sx={{
-                width: 40,
-                height: 40,
-                mr: 1, // space between logo and text
-              }}
+              sx={{ width: 40, height: 40, mr: 1 }}
             />
-
-            {/* Brand Name */}
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: "bold",
-                color: "#000",
-              }}
-            >
+            <Typography variant="h6" sx={{ fontWeight: "bold", color: "#000" }}>
               stAywOKe
             </Typography>
           </Box>
+
           {/* Desktop Links */}
           <Box
             sx={{ display: { xs: "none", md: "flex" }, gap: 3, alignItems: "center" }}
@@ -118,7 +101,7 @@ const Navbar = () => {
               </Button>
             ))}
 
-            {/* Cart Icon */}
+            {/* Cart Icon (desktop) */}
             <IconButton
               component={Link}
               to="/cart"
@@ -131,17 +114,32 @@ const Navbar = () => {
             </IconButton>
           </Box>
 
-          {/* Mobile Toggle Button */}
-          <IconButton
-            sx={{ display: { xs: "block", md: "none" }, color: themeColors.text }}
-            onClick={() => setIsOpen(true)}
-          >
-            <MenuIcon />
-          </IconButton>
+          {/* Mobile Actions (Cart + Menu) */}
+          <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
+            {/* Cart Icon (mobile) */}
+            <IconButton
+              component={Link}
+              to="/cart"
+              size="large"
+              sx={{ color: themeColors.text }}
+            >
+              <Badge badgeContent={cartCount} color="error">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+
+            {/* Menu Toggle */}
+            <IconButton
+              sx={{ color: themeColors.text }}
+              onClick={() => setIsOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
 
-      {/* Mobile Sidebar Drawer */}
+      {/* Mobile Drawer */}
       <Drawer
         anchor="right"
         open={isOpen}
@@ -156,14 +154,12 @@ const Navbar = () => {
           },
         }}
       >
-        {/* Close Button inside Sidebar */}
         <Box sx={{ display: "flex", justifyContent: "flex-end", p: 2 }}>
           <IconButton onClick={() => setIsOpen(false)}>
             <CloseIcon sx={{ color: themeColors.primary }} />
           </IconButton>
         </Box>
 
-        {/* Sidebar Links */}
         <List sx={{ padding: 2 }}>
           {navLinks.map((link) => (
             <ListItem
@@ -195,34 +191,6 @@ const Navbar = () => {
               />
             </ListItem>
           ))}
-
-          <Divider sx={{ my: 1 }} />
-
-          {/* Cart link in sidebar */}
-          <ListItem
-            button
-            component={Link}
-            to="/cart"
-            onClick={() => setIsOpen(false)}
-            sx={{
-              borderRadius: "8px",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                backgroundColor: "#f0f4ff",
-                transform: "translateX(6px)",
-              },
-            }}
-          >
-            <ListItemText
-              primary={`Cart (${cartCount})`}
-              sx={{
-                "& span": {
-                  fontWeight: 600,
-                  color: themeColors.primary,
-                },
-              }}
-            />
-          </ListItem>
         </List>
       </Drawer>
     </>

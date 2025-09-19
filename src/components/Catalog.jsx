@@ -6,8 +6,6 @@ import "../assets/css/Catalog.css";
 
 import { getProducts } from "../api/ProductApi"; 
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
-
 const Catalog = ({ limit }) => {
   const [products, setProducts] = useState([]);
 
@@ -48,11 +46,28 @@ const Catalog = ({ limit }) => {
         {displayedProducts.map((product) => (
           <Grid item key={product._id} xs={12} sm={6} md={3}>
             <Box className="modern-card">
-              <img
-                src={`${BASE_URL}/${product.image}`} // ✅ build image URL
-                alt={product.name}
-                className="modern-img"
-              />
+              {/* ✅ Cloudinary main image */}
+              {product.image?.url ? (
+                <img
+                  src={product.image.url}
+                  alt={product.name}
+                  className="modern-img"
+                />
+              ) : (
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: 250,
+                    bgcolor: "#ddd",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "12px",
+                  }}
+                >
+                  <Typography>No Image</Typography>
+                </Box>
+              )}
 
               {/* Overlay on hover */}
               <Box className="modern-overlay">

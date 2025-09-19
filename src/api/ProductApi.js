@@ -1,51 +1,37 @@
-// src/api/ProductApi.js
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
+const API_URL = "http://localhost:5000/api/products"; // adjust if needed
 
-const api = axios.create({
-  baseURL: `${BASE_URL}/api/products`,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
-// attach token to every request
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("adminToken");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
-
-// endpoints
+// Get products
 export const getProducts = async () => {
-  const { data } = await api.get("/");
-  return data;
+  const res = await axios.get(API_URL);
+  return res.data;
 };
 
-// Fetch a single product by ID
 export const getProductById = async (id) => {
-  const { data } = await api.get(`/${id}`);
-  return data;
+  const res = await axios.get(`${API_URL}/${id}`);
+  return res.data;
 };
 
-export const createProduct = async (productData) => {
-  const { data } = await api.post("/", productData, {
-    headers: { "Content-Type": "multipart/form-data" }, // for file uploads
-  });
-  return data;
-};
 
-export const updateProduct = async (id, productData) => {
-  const { data } = await api.put(`/${id}`, productData, {
+// Create product
+export const createProduct = async (formData) => {
+  const res = await axios.post(API_URL, formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
-  return data;
+  return res.data;
 };
 
+// Update product
+export const updateProduct = async (id, formData) => {
+  const res = await axios.put(`${API_URL}/${id}`, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return res.data;
+};
+
+// Delete product
 export const deleteProduct = async (id) => {
-  const { data } = await api.delete(`/${id}`);
-  return data;
+  const res = await axios.delete(`${API_URL}/${id}`);
+  return res.data;
 };

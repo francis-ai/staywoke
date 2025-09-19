@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Container } from "@mui/material";
-import AboutImg from "../assets/images/logo.png";
+import AboutImg from "../assets/images/logo2.png";
 
 const AboutUs = () => {
   return (
@@ -55,27 +55,6 @@ const AboutUs = () => {
               mx: "auto",
             }}
           />
-
-          {/* Text */}
-          {/* <Box sx={{ flex: 1 }}>
-            <Typography
-              variant="h4"
-              fontWeight="700"
-              sx={{ mb: 2, fontFamily: "'Poppins', sans-serif" }}
-            >
-              Who We Are
-            </Typography>
-            <Typography variant="body1" sx={{ color: "text.secondary", mb: 2 }}>
-              We started with a simple idea: to build something meaningful and
-              impactful. Over the years, our team has grown into a family of
-              creative thinkers, problem solvers, and innovators dedicated to
-              excellence.
-            </Typography>
-            <Typography variant="body1" sx={{ color: "text.secondary" }}>
-              Our culture is built on collaboration, respect, and a shared
-              passion for what we do. Together, we aim to make a difference.
-            </Typography>
-          </Box> */}
         </Box>
       </Container>
     </Box>

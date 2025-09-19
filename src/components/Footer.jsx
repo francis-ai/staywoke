@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Typography, IconButton, Stack } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { FaTiktok } from "react-icons/fa"; // ✅ TikTok icon from react-icons
 
 // 🎨 Theme Colors (same as navbar for consistency)
 const themeColors = {
@@ -65,33 +63,22 @@ const Footer = () => {
         justifyContent="center"
         sx={{ mb: 2 }}
       >
+        {/* TikTok */}
         <IconButton
-          href="https://facebook.com"
+          href="https://tiktok.com/@yourhandle"
           target="_blank"
           sx={{ color: themeColors.text, "&:hover": { color: themeColors.primary } }}
         >
-          <FacebookIcon />
+          <FaTiktok size={24} />
         </IconButton>
+
+        {/* Instagram */}
         <IconButton
-          href="https://twitter.com"
-          target="_blank"
-          sx={{ color: themeColors.text, "&:hover": { color: themeColors.primary } }}
-        >
-          <TwitterIcon />
-        </IconButton>
-        <IconButton
-          href="https://instagram.com"
+          href="https://instagram.com/yourhandle"
           target="_blank"
           sx={{ color: themeColors.text, "&:hover": { color: themeColors.primary } }}
         >
           <InstagramIcon />
-        </IconButton>
-        <IconButton
-          href="https://linkedin.com"
-          target="_blank"
-          sx={{ color: themeColors.text, "&:hover": { color: themeColors.primary } }}
-        >
-          <LinkedInIcon />
         </IconButton>
       </Stack>
 
