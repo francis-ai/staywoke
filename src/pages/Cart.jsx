@@ -13,7 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from "react-router-dom"; 
 import { useCart } from "../context/CartContext";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 const Cart = () => {
   const { cart, removeFromCart, updateQty } = useCart();

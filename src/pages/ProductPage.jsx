@@ -13,7 +13,7 @@ import { ShoppingCart, X } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { getProductById } from "../api/ProductApi";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 const ProductDetail = () => {
   const { id } = useParams();

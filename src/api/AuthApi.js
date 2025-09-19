@@ -1,7 +1,7 @@
 // src/api/authApi.js
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 // Create axios instance
 const api = axios.create({

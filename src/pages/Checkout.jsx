@@ -11,8 +11,8 @@ import {
 } from "@mui/material";
 import { useCart } from "../context/CartContext";
 
-const WHATSAPP_NUMBER = "2348159227696"; // ✅ Replace with your WhatsApp number
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const WHATSAPP_NUMBER = "2348143582166";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 const Checkout = () => {
   const { cart } = useCart();

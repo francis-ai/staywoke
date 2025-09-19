@@ -4,8 +4,9 @@ import { Grid, Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import "../assets/css/Catalog.css";
 
-import { getProducts } from "../api/ProductApi"; // ✅ fetch from API
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+import { getProducts } from "../api/ProductApi"; 
+
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 const Catalog = ({ limit }) => {
   const [products, setProducts] = useState([]);

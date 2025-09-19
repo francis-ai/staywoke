@@ -29,7 +29,7 @@ import {
   deleteProduct,
 } from "../../api/ProductApi";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://staywoke-backend.onrender.com";
 
 export default function Catalog() {
   const [products, setProducts] = useState([]);
