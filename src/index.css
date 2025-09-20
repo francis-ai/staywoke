@@ -8,45 +8,6 @@
   padding: 0;
   /* box-sizing: border-box; */
 }
-/* 
-html, body, .app {
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #e0eafc, #4facfe, #1762a8);
-  background-size: 200% 200%;
-  color: #000;
-  transition: background 0.3s ease, color 0.3s ease;
-  animation: gradientShift 12s ease infinite;
-}
-
-:root {
-  --bg-color: #ffffff;  
-  --grid-line: #0a2a96;  
-  --margin-line: #1d0cb5df;
-  --text-color: #f2f2f2;
-}
-
-body {
-  background-color: var(--bg-color);
-  background-image:
-    linear-gradient(to right, transparent 39px, var(--margin-line) 1px, transparent 0),
-    repeating-linear-gradient(to right, transparent, transparent 23px, var(--grid-line) 24px),
-    repeating-linear-gradient(to bottom, transparent, transparent 23px, var(--grid-line) 24px);
-  background-size:
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    24px 100%,
-    100% 24px;
-  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat;
-  background-position: top left;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} 
- */
 
 @font-face {
   font-family: 'Notedry';

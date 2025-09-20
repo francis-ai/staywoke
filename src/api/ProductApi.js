@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/products"; // adjust if needed
+const API_URL = "https://staywoke-backend.onrender.com/api/products"; // adjust if needed
 
 // Get products
 export const getProducts = async () => {
@@ -12,7 +12,6 @@ export const getProductById = async (id) => {
   const res = await axios.get(`${API_URL}/${id}`);
   return res.data;
 };
-
 
 // Create product
 export const createProduct = async (formData) => {
