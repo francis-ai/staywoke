@@ -5,7 +5,6 @@ import { ShoppingCart } from "lucide-react";
 import {
   AppBar,
   Toolbar,
-  Typography,
   IconButton,
   Badge,
   Box,
@@ -14,12 +13,11 @@ import {
   List,
   ListItem,
   ListItemText,
-  // Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useCart } from "../context/CartContext"; 
-import Logo from '../assets/images/logo.png';
+import Logo from '../assets/images/logo-text.png';
 
 const themeColors = {
   primary: "#1976d2",
@@ -71,11 +69,8 @@ const Navbar = () => {
               component="img"
               src={Logo}
               alt="Logo"
-              sx={{ width: 40, height: 40, mr: 1 }}
+              sx={{height: 40, mr: 1 }}
             />
-            <Typography variant="h6" sx={{ fontWeight: "bold", color: "#000" }}>
-              stAywOKe
-            </Typography>
           </Box>
 
           {/* Desktop Links */}
