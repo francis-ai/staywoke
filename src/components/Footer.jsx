@@ -65,7 +65,7 @@ const Footer = () => {
       >
         {/* TikTok */}
         <IconButton
-          href="https://tiktok.com/@yourhandle"
+          href="https://www.tiktok.com/@staywoke.szn?_r=1&_t=ZS-91bvksKWlSH"
           target="_blank"
           sx={{ color: themeColors.text, "&:hover": { color: themeColors.primary } }}
         >
@@ -74,7 +74,7 @@ const Footer = () => {
 
         {/* Instagram */}
         <IconButton
-          href="https://instagram.com/yourhandle"
+          href="https://www.instagram.com/staywoke.szn?igsh=MWZ6NXppY2NlZ25xOA%3D%3D&utm_source=qr"
           target="_blank"
           sx={{ color: themeColors.text, "&:hover": { color: themeColors.primary } }}
         >
